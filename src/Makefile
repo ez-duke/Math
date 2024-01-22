@@ -4,6 +4,14 @@ TEST_SOURCES=tests/*.c
 OBJECTS=*.o
 HEADERS=s21_math.h tests/s21_math_tests.h
 
+ifeq ($(shell uname -s),Linux)
+	LIBS=-lm -lrt -lpthread -lcheck -lsubunit
+endif
+
+ifeq ($(shell uname -s),Darwin)
+	LIBS=-lcheck
+endif
+
 all: s21_math.a
 
 rebuild: clean all
@@ -21,7 +29,7 @@ cppc:
 	cppcheck --enable=all --suppress=missingIncludeSystem $(SOURCES) $(TEST_SOURCES) $(HEADERS)
 
 test: s21_math.a $(TEST_SOURCES)
-	$(CC) -o build/s21_math_tests tests/*.c s21_math.a -lcheck -lm
+	$(CC) -o build/s21_math_tests tests/*.c s21_math.a $(LIBS)
 	./build/s21_math_tests
 
 s21_math.a: $(SOURCES)
