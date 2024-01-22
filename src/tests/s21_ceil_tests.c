@@ -38,7 +38,7 @@ START_TEST(s21_ceil_test6) {
 END_TEST
 
 START_TEST(s21_ceil_test7) {
-  ck_assert_ldouble_le(s21_fabs(s21_ceil(S21_INF)), ceill(S21_INF));
+  ck_assert_ldouble_le(s21_ceil(S21_INF), ceill(S21_INF));
 }
 END_TEST
 

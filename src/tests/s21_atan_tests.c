@@ -16,13 +16,12 @@ START_TEST(s21_atan_test2) {
 END_TEST
 
 START_TEST(s21_atan_test3) {
-  ck_assert_ldouble_le(s21_fabs(s21_atan(-S21_PI_4) - atanl(-S21_PI_4)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(s21_atan(S21_PI_4) - atanl(S21_PI_4)), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_atan_test4) {
-  ck_assert_ldouble_le(
-      s21_fabs(s21_atan(0.135126315234) - atanl(0.135126315234)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(s21_atan(-S21_PI_4) - atanl(-S21_PI_4)), 1e-6);
 }
 END_TEST
 
@@ -32,7 +31,7 @@ START_TEST(s21_atan_test5) {
 END_TEST
 
 START_TEST(s21_atan_test6) {
-  ck_assert_ldouble_le(s21_fabs(s21_atan(312.47172461) - atanl(312.47172461)),
+  ck_assert_ldouble_le(s21_fabs(s21_atan(-5 * S21_PI_2) - atanl(-5 * S21_PI_2)),
                        1e-6);
 }
 END_TEST
@@ -50,6 +49,29 @@ END_TEST
 START_TEST(s21_atan_test9) { ck_assert_ldouble_nan(s21_atan(S21_NAN)); }
 END_TEST
 
+START_TEST(s21_atan_test10) {
+  ck_assert_ldouble_le(s21_fabs(s21_atan(S21_PI) - atanl(S21_PI)), 1e-6);
+}
+END_TEST
+
+START_TEST(s21_atan_test11) {
+  ck_assert_ldouble_le(s21_fabs(s21_atan(-7 * S21_PI) - atanl(-7 * S21_PI)),
+                       1e-6);
+}
+END_TEST
+
+START_TEST(s21_atan_test12) {
+  ck_assert_ldouble_le(
+      s21_fabs(s21_atan(0.135126315234) - atanl(0.135126315234)), 1e-6);
+}
+END_TEST
+
+START_TEST(s21_atan_test13) {
+  ck_assert_ldouble_le(s21_fabs(s21_atan(312.47172461) - atanl(312.47172461)),
+                       1e-6);
+}
+END_TEST
+
 Suite *s21_atan_test_suite() {
   Suite *s = suite_create("s21_atan");
   TCase *tc_case = tcase_create("s21_atan_case");
@@ -63,6 +85,10 @@ Suite *s21_atan_test_suite() {
   tcase_add_test(tc_case, s21_atan_test7);
   tcase_add_test(tc_case, s21_atan_test8);
   tcase_add_test(tc_case, s21_atan_test9);
+  tcase_add_test(tc_case, s21_atan_test10);
+  tcase_add_test(tc_case, s21_atan_test11);
+  tcase_add_test(tc_case, s21_atan_test12);
+  tcase_add_test(tc_case, s21_atan_test13);
 
   suite_add_tcase(s, tc_case);
 

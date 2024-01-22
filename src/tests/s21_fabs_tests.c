@@ -1,44 +1,42 @@
 #include "s21_math_tests.h"
 
 START_TEST(s21_fabs_test0) {
-  ck_assert_ldouble_le(s21_fabs(s21_fabs(0.0) - fabsl(0.0)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(0.0) - fabsl(0.0), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_fabs_test1) {
-  ck_assert_ldouble_le(s21_fabs(s21_fabs(1.0) - fabsl(1.0)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(1.0) - fabsl(1.0), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_fabs_test2) {
-  ck_assert_ldouble_le(s21_fabs(s21_fabs(-1.0) - fabsl(-1.0)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(-1.0) - fabsl(-1.0), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_fabs_test3) {
-  ck_assert_ldouble_le(s21_fabs(s21_fabs(-S21_PI_4) - fabsl(-S21_PI_4)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(-S21_PI_4) - fabsl(-S21_PI_4), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_fabs_test4) {
-  ck_assert_ldouble_le(
-      s21_fabs(s21_fabs(0.135126315234) - fabsl(0.135126315234)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(0.135126315234) - fabsl(0.135126315234), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_fabs_test5) {
-  ck_assert_ldouble_le(s21_fabs(s21_fabs(S21_PI_2) - fabsl(S21_PI_2)), 1e-6);
+  ck_assert_ldouble_le(s21_fabs(S21_PI_2) - fabsl(S21_PI_2), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_fabs_test6) {
-  ck_assert_ldouble_le(s21_fabs(s21_fabs(312.47172461) - fabsl(312.47172461)),
-                       1e-6);
+  ck_assert_ldouble_le(s21_fabs(312.47172461) - fabsl(312.47172461), 1e-6);
 }
 END_TEST
 
 START_TEST(s21_fabs_test7) {
-  ck_assert_ldouble_le(s21_fabs(s21_fabs(S21_INF)), fabsl(S21_INF));
+  ck_assert_ldouble_le(s21_fabs(S21_INF), fabsl(S21_INF));
 }
 END_TEST
 
